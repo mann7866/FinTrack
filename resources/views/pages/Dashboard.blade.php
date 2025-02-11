@@ -135,6 +135,7 @@
                                 class="text-white btn bg-yellow-500 border-yellow-500 hover:text-white hover:bg-yellow-600 hover:border-yellow-600 focus:text-white focus:bg-yellow-600 focus:border-yellow-600 focus:ring focus:ring-yellow-100 active:text-white active:bg-yellow-600 active:border-yellow-600 active:ring active:ring-yellow-100 dark:ring-yellow-400/20">
                                 All
                             </a>
+                            {{--  mudal filter  --}}
                             <div id="topModal" modal-top
                                 class="fixed flex flex-col hidden transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 show">
                                 <div
@@ -270,6 +271,8 @@
 
                                 </div>
                             </div>
+
+                            {{--  end modal filter  --}}
 
                             <a href="{{ route('finance.log.create') }}" type="button"
                                 class="text-sky-500 bg-white border-sky-500 border-dashed btn hover:text-sky-500 hover:bg-sky-50 hover:border-sky-600 focus:text-sky-600 focus:bg-sky-50 focus:border-sky-600 active:text-sky-600 active:bg-sky-50 active:border-sky-600 dark:bg-zink-700 dark:ring-sky-400/20 dark:hover:bg-sky-800/20 dark:focus:bg-sky-800/20 dark:active:bg-sky-800/20">
