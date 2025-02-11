@@ -89,7 +89,7 @@
                             Rp.
                             <span class="counter-value" data-target="{{ $totalIncomeMonth }}">0</span>
                         </h5>
-                        <p class="text-slate-500 dark:text-zink-200">Total Pemasukan</p>
+                        <p class="text-slate-500 dark:text-zink-200">Total Pemasukan per bulan</p>
                     </div>
                 </div>
             </div>
@@ -111,7 +111,7 @@
                             Rp.
                             <span class="counter-value" data-target="{{ $totalExpenseMonth }}">0</span>
                         </h5>
-                        <p class="text-slate-500 dark:text-zink-200">Total Pengeluaran</p>
+                        <p class="text-slate-500 dark:text-zink-200">Total Pengeluaran per bulan</p>
                     </div>
                 </div>
             </div>
@@ -122,16 +122,153 @@
                     <div class="flex group mb-4 justify-between items-center">
 
                         <div class="flex justify-start gap-2 text-right lg:col-span-2 xl:col-span-4 xl:col-start-10">
-                            Detail Transaksi Selama 1 bulan
+                            Detail Transaksi
                         </div>
 
-                        <div class="flex justify-end gap-2 text-right lg:col-span-2 xl:col-span-4 xl:col-start-10">
-                            <div class="relative">
-                                <input type="text"
-                                    class="ltr:pl-8 rtl:pr-8 search form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
-                                    placeholder="Search for ..." autocomplete="off">
-                                <i data-lucide="search"
-                                    class="inline-block size-4 absolute ltr:left-2.5 rtl:right-2.5 top-2.5 text-slate-500 dark:text-zink-200 fill-slate-100 dark:fill-zink-600"></i>
+
+                        <div class="flex justify-end gap-2 text-left lg:col-span-2 xl:col-span-4 xl:col-start-10">
+                            <button data-modal-target="topModal" type="button"
+                                class="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">
+                                Filter
+                            </button>
+                            <a href="{{ route('dashboard') }}"
+                                class="text-white btn bg-yellow-500 border-yellow-500 hover:text-white hover:bg-yellow-600 hover:border-yellow-600 focus:text-white focus:bg-yellow-600 focus:border-yellow-600 focus:ring focus:ring-yellow-100 active:text-white active:bg-yellow-600 active:border-yellow-600 active:ring active:ring-yellow-100 dark:ring-yellow-400/20">
+                                All
+                            </a>
+                            <div id="topModal" modal-top
+                                class="fixed flex flex-col hidden transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 show">
+                                <div
+                                    class="w-screen md:w-[30rem] bg-white shadow rounded-md dark:bg-zink-600 flex flex-col">
+                                    <div
+                                        class="flex items-center justify-between p-4 border-b border-slate-200 dark:border-zink-500">
+                                        <h5 class="text-16">Filter</h5>
+                                        <button data-modal-close="topModal"
+                                            class="transition-all duration-200 ease-linear text-slate-500 hover:text-red-500 dark:text-zink-200 dark:hover:text-red-500"><i
+                                                data-lucide="x" class="size-5"></i></button>
+                                    </div>
+                                    <div class="max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto">
+                                        <form action="{{ route('dashboard') }}" method="GET">
+                                            <!-- Filter Options -->
+                                            <div id='external-events'>
+                                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                    <!-- Filter Tahun -->
+                                                    <div class="mb-2">
+                                                        <label for="year" class="text-base font-medium">Filter
+                                                            Tahun:</label>
+                                                        <select name="year" id="year"
+                                                            class="border rounded px-3 py-2 w-full cursor-pointer">
+                                                            <option value="">Pilih Tahun</option>
+                                                            @foreach (range(date('Y'), date('Y') - 10) as $year)
+                                                                <option value="{{ $year }}"
+                                                                    {{ request('year') == $year ? 'selected' : '' }}>
+                                                                    {{ $year }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+
+                                                    <!-- Filter Bulan -->
+                                                    <div class="mb-2">
+                                                        <label for="month" class="text-base font-medium">Filter
+                                                            Bulan:</label>
+                                                        <select name="month" id="month"
+                                                            class="border rounded px-3 py-2 w-full cursor-pointer">
+                                                            <option value="">Pilih Bulan</option>
+                                                            @foreach (range(1, 12) as $month)
+                                                                <option value="{{ $month }}"
+                                                                    {{ request('month') == $month ? 'selected' : '' }}>
+                                                                    {{ \Carbon\Carbon::create()->month($month)->translatedFormat('F') }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+
+                                                    <!-- Tanggal Mulai dan Akhir -->
+                                                    <div class="mb-4">
+                                                        <label for="start_of_week" class="text-base font-medium">Tanggal
+                                                            Mulai:</label>
+                                                        <input type="date" name="start_of_week" id="start_of_week"
+                                                            class="border rounded px-3 py-2 w-full cursor-pointer"
+                                                            value="{{ request('start_of_week') }}">
+                                                        <label class="mt-2 mb-4 text-base font-medium">Tanggal:</label>
+                                                        <input type="date" id="date" name="date"
+                                                            value="{{ request('date') }}" class="w-full mb-2 form-input">
+                                                    </div>
+
+                                                    <!-- Minggu -->
+                                                    <div class="mb-4">
+                                                        <label for="end_of_week"
+                                                            class="text-base font-medium mt-2">Tanggal Akhir:</label>
+                                                        <input type="date" name="end_of_week" id="end_of_week"
+                                                            class="border rounded px-3 py-2 w-full cursor-pointer"
+                                                            value="{{ request('end_of_week') }}">
+                                                    </div>
+                                                </div>
+
+                                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                                    <!-- Tipe Transaksi -->
+                                                    <div class="mb-2">
+                                                        <label class="text-base font-medium">Tipe Transaksi</label>
+                                                        <div class="flex items-center gap-2">
+                                                            <input id="income" name="type[]" value="income"
+                                                                type="checkbox" class="cursor-pointer"
+                                                                {{ in_array('income', old('type', (array) request('type'))) ? 'checked' : '' }}>
+                                                            <label for="income">Pemasukan</label>
+                                                        </div>
+                                                        <div class="flex items-center gap-2">
+                                                            <input id="expense" name="type[]" value="expense"
+                                                                type="checkbox" class="cursor-pointer"
+                                                                {{ in_array('expense', old('type', (array) request('type'))) ? 'checked' : '' }}>
+                                                            <label for="expense">Pengeluaran</label>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Metode Transaksi -->
+                                                    <div class="mb-2">
+                                                        <label class="text-base font-medium">Metode Transaksi</label>
+                                                        <div class="flex items-center gap-2">
+                                                            <input id="cash" name="method[]" value="cash"
+                                                                type="checkbox" class="cursor-pointer"
+                                                                {{ in_array('cash', old('method', (array) request('method'))) ? 'checked' : '' }}>
+                                                            <label for="cash">Tunai</label>
+                                                        </div>
+                                                        <div class="flex items-center gap-2">
+                                                            <input id="non_cash" name="method[]" value="non_cash"
+                                                                type="checkbox" class="cursor-pointer"
+                                                                {{ in_array('non_cash', old('method', (array) request('method'))) ? 'checked' : '' }}>
+                                                            <label for="non_cash">Non Tunai</label>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="mb-2 mt-2">
+                                                    <label class="text-base font-medium mt-2 mb-2">Kategori</label>
+                                                    <div class="grid grid-cols-1 mt-2 md:grid-cols-4 lg:grid-cols-2 gap-2">
+                                                        @foreach ($categories as $category)
+                                                            <div class="flex items-center gap-2">
+                                                                <input id="category_{{ $category->id }}"
+                                                                    name="category[]" value="{{ $category->id }}"
+                                                                    type="checkbox" class="cursor-pointer"
+                                                                    {{ in_array($category->id, old('category', (array) request('category'))) ? 'checked' : '' }}>
+                                                                <label
+                                                                    for="category_{{ $category->id }}">{{ $category->name }}</label>
+                                                            </div>
+                                                        @endforeach
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="fkex justify-end mt-4">
+                                                    <button type="submit"
+                                                        class="text-white w-full btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">
+                                                        Filter
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
                             </div>
 
                             <a href="{{ route('finance.log.create') }}" type="button"

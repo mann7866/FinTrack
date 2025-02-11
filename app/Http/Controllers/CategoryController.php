@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller
@@ -65,7 +66,9 @@ class CategoryController extends Controller
         try{
             if($request){
                 $data = $request->validated();
+                $data['user_id'] = Auth::user()->id;
                 $category->update($data);
+
             }else{
                 return redirect()->route('category.index')->with('success','Berhasil Update Data');
             }

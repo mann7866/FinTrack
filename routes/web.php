@@ -15,6 +15,7 @@ Route::get('/dashboard',[AllController::class,'dashboard'])->name('dashboard');
 
     Route::prefix('/transaction')->group(function(){
         Route::get('/finance/logs', [FinanceLogController::class,'index'])->name('finance.log.index');
+        Route::get('/finance/logs/{financeLog}/show', [FinanceLogController::class,'show'])->name('finance.log.show');
         Route::get('/finance/logs/create', [FinanceLogController::class,'create'])->name('finance.log.create');
         Route::post('/finance/logs', [FinanceLogController::class,'store'])->name('finance.log.store');
         Route::get('/finance/logs/{financeLog}/edit', [FinanceLogController::class,'edit'])->name('finance.log.edit');

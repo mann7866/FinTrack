@@ -90,7 +90,7 @@
                         <span
                             class="group-data-[sidebar-size=sm]:ltr:pl-10 group-data-[sidebar-size=sm]:rtl:pr-10 align-middle group-data-[sidebar-size=sm]:group-hover/sm:block group-data-[sidebar-size=sm]:hidden"
                             data-key="t-chat">
-                            Kategori & Metode Transaksi
+                            Kategori 
                         </span>
                     </a>
                 </li>

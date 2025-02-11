@@ -212,85 +212,148 @@
 
                 <div class="card-body">
 
-                    <form action="{{ route('finance.log.index') }}">
-                        <button type="submit" data-modal-target="event-modal"
-                            data-class="transition-all w-[100%] text-yellow-500 !bg-yellow-100 dark:!bg-yellow-500/20 border-none rounded-md py-1.5 px-3"
-                            class="mb-4 w-full cursor-pointer external-event fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event text-yellow-500 btn bg-yellow-100 hover:text-white hover:bg-yellow-600 focus:text-white focus:bg-yellow-600 focus:ring focus:ring-yellow-100 active:text-white active:bg-yellow-600 active:ring active:ring-yellow-100 dark:bg-yellow-500/20 dark:text-yellow-500 dark:hover:bg-yellow-500 dark:hover:text-white dark:focus:bg-yellow-500 dark:focus:text-white dark:active:bg-yellow-500 dark:active:text-white dark:ring-yellow-400/20">
-                            All
-                        </button>
-                    </form>
-                    <form action="{{ route('finance.log.index') }}" method="GET">
-
-                        <!-- Search Input -->
-                        {{--  <div class="relative group flex grow">
-                            <input type="text" name="search" value="{{ old('search', request('search')) }}"
-                                class="search form-input" placeholder="cari deskripsi ..." autocomplete="off">
-                        </div>  --}}
-
-                        <!-- Filter Options -->
-                        <div id='external-events'>
-
-                            <label class="mt-2 mb-4 text-base font-medium">Tanggal:</label>
-                            <div class="flex gap-4 mt-2">
-                                <!-- Single Date Picker -->
-                                <div class="flex flex-col">
-                                    <input type="date" id="date" name="date" value="{{ request('date') }}"
-                                        class="w-full mb-2 form-input">
-                                </div>
+                    <a href="{{ route('dashboard') }}"
+                        class="text-white w-full mb-2 btn bg-yellow-500 border-yellow-500 hover:text-white hover:bg-yellow-600 hover:border-yellow-600 focus:text-white focus:bg-yellow-600 focus:border-yellow-600 focus:ring focus:ring-yellow-100 active:text-white active:bg-yellow-600 active:border-yellow-600 active:ring active:ring-yellow-100 dark:ring-yellow-400/20">
+                        All
+                    </a>
+                    <button data-modal-target="topModal" type="button"
+                        class="text-white w-full btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">
+                        Filter
+                    </button>
+                    <div id="topModal" modal-top
+                        class="fixed flex flex-col hidden transition-all duration-300 ease-in-out left-2/4 z-drawer -translate-x-2/4 show">
+                        <div class="w-screen md:w-[30rem] bg-white shadow rounded-md dark:bg-zink-600 flex flex-col">
+                            <div
+                                class="flex items-center justify-between p-4 border-b border-slate-200 dark:border-zink-500">
+                                <h5 class="text-16">Filter</h5>
+                                <button data-modal-close="topModal"
+                                    class="transition-all duration-200 ease-linear text-slate-500 hover:text-red-500 dark:text-zink-200 dark:hover:text-red-500"><i
+                                        data-lucide="x" class="size-5"></i></button>
                             </div>
+                            <div class="max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto">
+                                <form action="{{ route('finance.log.index') }}" method="GET">
+                                    <!-- Filter Options -->
+                                    <div id='external-events'>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <!-- Filter Tahun -->
+                                            <div class="mb-2">
+                                                <label for="year" class="text-base font-medium">Filter
+                                                    Tahun:</label>
+                                                <select name="year" id="year"
+                                                    class="border rounded px-3 py-2 w-full cursor-pointer">
+                                                    <option value="">Pilih Tahun</option>
+                                                    @foreach (range(date('Y'), date('Y') - 10) as $year)
+                                                        <option value="{{ $year }}"
+                                                            {{ request('year') == $year ? 'selected' : '' }}>
+                                                            {{ $year }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
 
-                            <label class="mt-4 mb-2 text-base font-medium">Tipe Transaksi</label>
-                            <!-- Filter by Type -->
-                            <div class="flex items-center gap-2">
-                                <input id="income" name="type[]" value="income" type="checkbox"
-                                    class="cursor-pointer"
-                                    {{ in_array('income', old('type', (array) request('type'))) ? 'checked' : '' }}>
-                                <label for="income">Pemasukan</label>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <input id="expense" name="type[]" value="expense" type="checkbox"
-                                    class="cursor-pointer"
-                                    {{ in_array('expense', old('type', (array) request('type'))) ? 'checked' : '' }}>
-                                <label for="expense">Pengeluaran</label>
-                            </div>
+                                            <!-- Filter Bulan -->
+                                            <div class="mb-2">
+                                                <label for="month" class="text-base font-medium">Filter
+                                                    Bulan:</label>
+                                                <select name="month" id="month"
+                                                    class="border rounded px-3 py-2 w-full cursor-pointer">
+                                                    <option value="">Pilih Bulan</option>
+                                                    @foreach (range(1, 12) as $month)
+                                                        <option value="{{ $month }}"
+                                                            {{ request('month') == $month ? 'selected' : '' }}>
+                                                            {{ \Carbon\Carbon::create()->month($month)->translatedFormat('F') }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
 
-                            <label class="mt-2 mb-2 text-base font-medium">Metode Transaksi</label>
-                            <!-- Filter by Payment Method -->
-                            <div class="flex items-center gap-2">
-                                <input id="cash" name="method[]" value="cash" type="checkbox"
-                                    class="cursor-pointer"
-                                    {{ in_array('cash', old('method', (array) request('method'))) ? 'checked' : '' }}>
-                                <label for="cash">Tunai</label>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <input id="non_cash" name="method[]" value="non_cash" type="checkbox"
-                                    class="cursor-pointer"
-                                    {{ in_array('non_cash', old('method', (array) request('method'))) ? 'checked' : '' }}>
-                                <label for="non_cash">Non Tunai</label>
-                            </div>
+                                            <!-- Tanggal Mulai dan Akhir -->
+                                            <div class="mb-4">
+                                                <label for="start_of_week" class="text-base font-medium">Tanggal
+                                                    Mulai:</label>
+                                                <input type="date" name="start_of_week" id="start_of_week"
+                                                    class="border rounded px-3 py-2 w-full cursor-pointer"
+                                                    value="{{ request('start_of_week') }}">
+                                                <label class="mt-2 mb-4 text-base font-medium">Tanggal:</label>
+                                                <input type="date" id="date" name="date"
+                                                    value="{{ request('date') }}" class="w-full mb-2 form-input">
+                                            </div>
 
-                            <div class="scroll-auto max-h-40 overflow-y-auto">
-                                <!-- Filter by Category -->
-                                <div>
-                                    <label for="category" class="text-base font-medium">Kategori:</label>
-                                </div>
-                                @foreach ($categories as $category)
-                                    <div class="flex items-center gap-2">
-                                        <input id="category_{{ $category->id }}" name="category[]"
-                                            value="{{ $category->id }}" type="checkbox" class="cursor-pointer"
-                                            {{ in_array($category->id, old('category', (array) request('category'))) ? 'checked' : '' }}>
-                                        <label for="category_{{ $category->id }}">{{ $category->name }}</label>
+                                            <!-- Minggu -->
+                                            <div class="mb-4">
+                                                <label for="end_of_week" class="text-base font-medium mt-2">Tanggal
+                                                    Akhir:</label>
+                                                <input type="date" name="end_of_week" id="end_of_week"
+                                                    class="border rounded px-3 py-2 w-full cursor-pointer"
+                                                    value="{{ request('end_of_week') }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                            <!-- Tipe Transaksi -->
+                                            <div class="mb-2">
+                                                <label class="text-base font-medium">Tipe Transaksi</label>
+                                                <div class="flex items-center gap-2">
+                                                    <input id="income" name="type[]" value="income" type="checkbox"
+                                                        class="cursor-pointer"
+                                                        {{ in_array('income', old('type', (array) request('type'))) ? 'checked' : '' }}>
+                                                    <label for="income">Pemasukan</label>
+                                                </div>
+                                                <div class="flex items-center gap-2">
+                                                    <input id="expense" name="type[]" value="expense" type="checkbox"
+                                                        class="cursor-pointer"
+                                                        {{ in_array('expense', old('type', (array) request('type'))) ? 'checked' : '' }}>
+                                                    <label for="expense">Pengeluaran</label>
+                                                </div>
+                                            </div>
+
+                                            <!-- Metode Transaksi -->
+                                            <div class="mb-2">
+                                                <label class="text-base font-medium">Metode Transaksi</label>
+                                                <div class="flex items-center gap-2">
+                                                    <input id="cash" name="method[]" value="cash" type="checkbox"
+                                                        class="cursor-pointer"
+                                                        {{ in_array('cash', old('method', (array) request('method'))) ? 'checked' : '' }}>
+                                                    <label for="cash">Tunai</label>
+                                                </div>
+                                                <div class="flex items-center gap-2">
+                                                    <input id="non_cash" name="method[]" value="non_cash"
+                                                        type="checkbox" class="cursor-pointer"
+                                                        {{ in_array('non_cash', old('method', (array) request('method'))) ? 'checked' : '' }}>
+                                                    <label for="non_cash">Non Tunai</label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="mb-2 mt-2">
+                                            <label class="text-base font-medium mt-2 mb-2">Kategori</label>
+                                            <div class="grid grid-cols-1 mt-2 md:grid-cols-4 lg:grid-cols-2 gap-2">
+                                                @foreach ($categories as $category)
+                                                    <div class="flex items-center gap-2">
+                                                        <input id="category_{{ $category->id }}" name="category[]"
+                                                            value="{{ $category->id }}" type="checkbox"
+                                                            class="cursor-pointer"
+                                                            {{ in_array($category->id, old('category', (array) request('category'))) ? 'checked' : '' }}>
+                                                        <label
+                                                            for="category_{{ $category->id }}">{{ $category->name }}</label>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+
+                                        </div>
+
+                                        <div class="fkex justify-end mt-4">
+                                            <button type="submit"
+                                                class="text-white w-full btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">
+                                                Filter
+                                            </button>
+                                        </div>
                                     </div>
-                                @endforeach
+                                </form>
                             </div>
 
-
-                            <button type="submit"
-                                class="text-white w-full btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">
-                                Cari...
-                            </button>
                         </div>
-                    </form>
+                    </div>
 
 
                 </div>

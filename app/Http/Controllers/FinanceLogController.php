@@ -19,6 +19,16 @@ class FinanceLogController extends Controller
         $query = FinanceLog::query();
 
         $financeLogs = $query
+            ->latest()
+            ->when($request->month, function($query) use ($request) {
+                return $query->whereMonth('created_at', $request->month);
+            })
+            ->when($request->year, function($query) use ($request) {
+                return $query->whereYear('created_at', $request->year);
+            })
+            ->when($request->start_of_week && $request->end_of_week, function($query) use ($request) {
+                return $query->whereBetween('created_at', [$request->start_of_week,$request->end_of_week]);
+            })
             ->when($request->type, function ($query) use ($request) {
                 return $query->whereIn('type', $request->type);
             })
@@ -31,7 +41,7 @@ class FinanceLogController extends Controller
             ->when($request->date, function ($query) use ($request) {
                 return $query->whereDate('transaction_date', '=', $request->date);
             })
-            ->get();
+            ->paginate(10);
 
 
         $categories = Category::all();
@@ -62,7 +72,7 @@ class FinanceLogController extends Controller
      */
     public function show(FinanceLog $financeLog)
     {
-        //
+        return view('pages.finance_log.detail');
     }
 
     /**
