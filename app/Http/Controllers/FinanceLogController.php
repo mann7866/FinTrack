@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\FinanceLog;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\FinanceLogRequest;
 
 class FinanceLogController extends Controller
@@ -20,6 +21,7 @@ class FinanceLogController extends Controller
 
         $financeLogs = $query
             ->latest()
+            ->where('user_id',Auth::user()->id)
             ->when($request->month, function($query) use ($request) {
                 return $query->whereMonth('created_at', $request->month);
             })
@@ -44,8 +46,46 @@ class FinanceLogController extends Controller
             ->paginate(10);
 
 
-        $categories = Category::all();
+        $categories = Category::where('user_id',Auth::user()->id)->get();
         return view('pages.finance_log.index', compact('financeLogs','categories'));
+    }
+
+    public function load(Request $request){
+        $query = FinanceLog::query();
+
+        $financeLogs = $query
+            ->latest()
+            ->where('user_id',Auth::user()->id)
+            ->when($request->month, function($query) use ($request) {
+                return $query->whereMonth('created_at', $request->month);
+            })
+            ->when($request->year, function($query) use ($request) {
+                return $query->whereYear('created_at', $request->year);
+            })
+            ->when($request->start_of_week && $request->end_of_week, function($query) use ($request) {
+                return $query->whereBetween('created_at', [$request->start_of_week,$request->end_of_week]);
+            })
+            ->when($request->type, function ($query) use ($request) {
+                return $query->whereIn('type', $request->type);
+            })
+            ->when($request->method, function ($query) use ($request) {
+                return $query->whereIn('payment_method', $request->method);
+            })
+            ->when($request->category, function ($query) use ($request) {
+                return $query->whereIn('category_id', $request->category);
+            })
+            ->when($request->date, function ($query) use ($request) {
+                return $query->whereDate('transaction_date', '=', $request->date);
+            })
+            ->paginate(10);
+
+
+        $categories = Category::where('user_id',Auth::user()->id)->get();
+
+        return response()->json([
+            'financeLogs' => $financeLogs,
+            'categories' => $categories,
+        ]);
     }
 
     /**
@@ -53,7 +93,7 @@ class FinanceLogController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::where('user_id',Auth::user()->id)->get();
         return view('pages.finance_log.create', compact('categories'));
     }
 
@@ -63,6 +103,7 @@ class FinanceLogController extends Controller
     public function store(FinanceLogRequest $request)
     {
         $data = $request->validated();
+        $data['user_id'] = Auth::user()->id;
         FinanceLog::create($data);
         return redirect()->route('finance.log.index')->with('success', 'Berhasil menambahkan data');
     }
@@ -80,7 +121,7 @@ class FinanceLogController extends Controller
      */
     public function edit(FinanceLog $financeLog)
     {
-        $categories = Category::all();
+        $categories = Category::where('user_id',Auth::user()->id)->get();
         return view('pages.finance_log.edit', compact('financeLog', 'categories'));
     }
 

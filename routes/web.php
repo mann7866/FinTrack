@@ -1,26 +1,49 @@
 <?php
 
-use App\Models\Category;
+use App\Models\FinanceLog;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AllController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FinanceLogController;
-use PHPUnit\Framework\Attributes\Group;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard',[AllController::class,'dashboard'])->name('dashboard');
+Route::get('/log', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('log');
 
-    Route::prefix('/transaction')->group(function(){
-        Route::get('/finance/logs', [FinanceLogController::class,'index'])->name('finance.log.index');
-        Route::get('/finance/logs/{financeLog}/show', [FinanceLogController::class,'show'])->name('finance.log.show');
-        Route::get('/finance/logs/create', [FinanceLogController::class,'create'])->name('finance.log.create');
-        Route::post('/finance/logs', [FinanceLogController::class,'store'])->name('finance.log.store');
-        Route::get('/finance/logs/{financeLog}/edit', [FinanceLogController::class,'edit'])->name('finance.log.edit');
-        Route::put('/finance/logs/{financeLog}', [FinanceLogController::class,'update'])->name('finance.log.update');
-        Route::delete('/finance/logs/{financeLog}/delete', [FinanceLogController::class,'destroy'])->name('finance.log.destroy');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+
+    Route::controller(AllController::class)->prefix('dashboard')->group(function(){
+        route::get('/','dashboard')->name('dashboard');
     });
 
-Route::get('/category&metode/page',[CategoryController::class,'index'])->name('category.index');
+    // category route
+    Route::controller(CategoryController::class)->prefix('/category')->name('category.')->group(function(){
+        route::get('/','index')->name('index');
+        route::post('/store','store')->name('store');
+        route::put('/{category}/update','update')->name('update');
+        route::delete('/{category}/destroy','destroy')->name('destroy');
+    });
+
+    // finance log route
+    Route::controller(FinanceLogController::class)->prefix('/finance-logs')->name('finance.log.')->group(function(){
+        Route::get('/','index')->name('index');
+        Route::get('/load','load')->name('load');
+        Route::get('/create','create')->name('create');
+        Route::post('/store','store')->name('store');
+        Route::get('/{financeLog}/edit','edit')->name('edit');
+        Route::put('/{financeLog}/update','update')->name('update');
+        Route::delete('/{financeLog}/destroy','destroy')->name('destroy');
+    });
+
+});
+
+require __DIR__.'/auth.php';

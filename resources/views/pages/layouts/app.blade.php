@@ -22,7 +22,7 @@
 </head>
 
 <body
-    class="text-base bg-body-bg text-body font-public dark:text-zink-100 dark:bg-zink-800 group-data-[skin=bordered]:bg-body-bordered group-data-[skin=bordered]:dark:bg-zink-700">
+    class="text-base bg-body-bg text-body font-public group-data-[skin=bordered]:bg-body-bordered group-data-[skin=bordered]:dark:bg-zink-700">
     <div class="group-data-[sidebar-size=sm]:min-h-sm group-data-[sidebar-size=sm]:relative">
 
 
@@ -35,8 +35,8 @@
         @include('pages.layouts.header')
 
         <div id="cartSidePenal" drawer-end
-            class="fixed inset-y-0 flex flex-col w-full transition-transform duration-300 ease-in-out transform bg-white shadow dark:bg-zink-600 ltr:right-0 rtl:left-0 md:w-96 z-drawer show">
-            <div class="flex items-center justify-between p-4 border-b border-slate-200 dark:border-zink-500">
+            class="fixed inset-y-0 flex flex-col w-full transition-transform duration-300 ease-in-out transform bg-white shadow ltr:right-0 rtl:left-0 md:w-96 z-drawer show">
+            <div class="flex items-center justify-between p-4 border-b border-slate-200">
                 <div class="grow">
                     <h5 class="mb-0 text-16">Shopping Cart <span
                             class="inline-flex items-center justify-center w-5 h-5 ml-1 text-[11px] font-medium border rounded-full text-white bg-custom-500 border-custom-500">3</span>
@@ -48,7 +48,7 @@
                             data-lucide="x" class="size-4"></i></button>
                 </div>
             </div>
-            <div class="px-4 py-3 text-sm text-green-500 border border-transparent bg-green-50 dark:bg-green-400/20">
+            <div class="px-4 py-3 text-sm text-green-500 border border-transparent bg-green-50">
                 <span class="font-bold underline">TAILWICK50</span> Coupon code applied successfully.
             </div>
             <div>
@@ -56,13 +56,13 @@
                     <div class="flex flex-col gap-4">
                         <div class="flex gap-2 product">
                             <div
-                                class="flex items-center justify-center w-12 h-12 rounded-md bg-slate-100 shrink-0 dark:bg-zink-500">
+                                class="flex items-center justify-center w-12 h-12 rounded-md bg-slate-100 shrink-0">
                                 <img src="assets/images/img-012.png" alt="" class="h-8">
                             </div>
                             <div class="overflow-hidden grow">
                                 <div class="ltr:float-right rtl:float-left">
                                     <button
-                                        class="transition-all duration-150 ease-linear text-slate-500 dark:text-zink-200 hover:text-red-500 dark:hover:text-red-500"><i
+                                        class="transition-all duration-150 ease-linear text-slate-500 hover:text-red-500"><i
                                             data-lucide="x" class="size-4"></i></button>
                                 </div>
                                 <a href="#!" class="transition-all duration-200 ease-linear hover:text-custom-500">
@@ -70,19 +70,19 @@
                                 </a>
                                 <div class="flex items-center mb-3">
                                     <h5 class="text-base product-price"> $<span>155.32</span></h5>
-                                    <div class="font-normal rtl:mr-1 ltr:ml-1 text-slate-500 dark:text-zink-200">
+                                    <div class="font-normal rtl:mr-1 ltr:ml-1 text-slate-500">
                                         (Fashion)</div>
                                 </div>
                                 <div class="flex items-center justify-between gap-3">
                                     <div class="inline-flex text-center input-step">
                                         <button type="button"
-                                            class="border w-9 h-9 leading-[15px] minus bg-white dark:bg-zink-700 dark:border-zink-500 ltr:rounded-l rtl:rounded-r transition-all duration-200 ease-linear border-slate-200 text-slate-500 dark:text-zink-200 hover:bg-custom-500 dark:hover:bg-custom-500 hover:text-custom-50 dark:hover:text-custom-50 hover:border-custom-500 dark:hover:border-custom-500 focus:bg-custom-500 dark:focus:bg-custom-500 focus:border-custom-500 dark:focus:border-custom-500 focus:text-custom-50 dark:focus:text-custom-50"><i
+                                            class="border w-9 h-9 leading-[15px] minus bg-white ltr:rounded-l rtl:rounded-r transition-all duration-200 ease-linear border-slate-200 text-slate-500 hover:bg-custom-500 hover:text-custom-50 hover:border-custom-500 focus:bg-custom-500 focus:border-custom-500 focus:text-custom-50"><i
                                                 data-lucide="minus" class="inline-block size-4"></i></button>
                                         <input type="number"
-                                            class="w-12 text-center h-9 border-y product-quantity dark:bg-zink-700 focus:shadow-none dark:border-zink-500"
+                                            class="w-12 text-center h-9 border-y product-quantity focus:shadow-none"
                                             value="2" min="0" max="100" readonly>
                                         <button type="button"
-                                            class="transition-all duration-200 ease-linear bg-white border dark:bg-zink-700 dark:border-zink-500 ltr:rounded-r rtl:rounded-l w-9 h-9 border-slate-200 plus text-slate-500 dark:text-zink-200 hover:bg-custom-500 dark:hover:bg-custom-500 hover:text-custom-50 dark:hover:text-custom-50 hover:border-custom-500 dark:hover:border-custom-500 focus:bg-custom-500 dark:focus:bg-custom-500 focus:border-custom-500 dark:focus:border-custom-500 focus:text-custom-50 dark:focus:text-custom-50"><i
+                                            class="transition-all duration-200 ease-linear bg-white border ltr:rounded-r rtl:rounded-l w-9 h-9 border-slate-200 plus text-slate-500 hover:bg-custom-500 hover:text-custom-50 hover:border-custom-500 focus:bg-custom-500 focus:border-custom-500 focus:text-custom-50"><i
                                                 data-lucide="plus" class="inline-block size-4"></i></button>
                                     </div>
                                     <h6 class="product-line-price">310.64</h6>
@@ -91,13 +91,13 @@
                         </div>
                         <div class="flex gap-2 product">
                             <div
-                                class="flex items-center justify-center w-12 h-12 rounded-md bg-slate-100 shrink-0 dark:bg-zink-500">
+                                class="flex items-center justify-center w-12 h-12 rounded-md bg-slate-100 shrink-0">
                                 <img src="assets/images/img-03.png" alt="" class="h-8">
                             </div>
                             <div class="overflow-hidden grow">
                                 <div class="ltr:float-right rtl:float-left">
                                     <button
-                                        class="transition-all duration-150 ease-linear text-slate-500 dark:text-zink-200 hover:text-red-500 dark:hover:text-red-500"><i
+                                        class="transition-all duration-150 ease-linear text-slate-500 hover:text-red-500"><i
                                             data-lucide="x" class="size-4"></i></button>
                                 </div>
                                 <a href="#!" class="transition-all duration-200 ease-linear hover:text-custom-500">
@@ -105,19 +105,19 @@
                                 </a>
                                 <div class="flex items-center mb-3">
                                     <h5 class="text-base product-price"> $<span>349.95</span></h5>
-                                    <div class="font-normal rtl:mr-1 ltr:ml-1 text-slate-400 dark:text-zink-200">
+                                    <div class="font-normal rtl:mr-1 ltr:ml-1 text-slate-400">
                                         (Luggage)</div>
                                 </div>
                                 <div class="flex items-center justify-between gap-3">
                                     <div class="inline-flex text-center input-step">
                                         <button type="button"
-                                            class="border w-9 h-9 leading-[15px] minus bg-white dark:bg-zink-700 dark:border-zink-500 ltr:rounded-l rtl:rounded-r transition-all duration-200 ease-linear border-slate-200 text-slate-500 dark:text-zink-200 hover:bg-custom-500 dark:hover:bg-custom-500 hover:text-custom-50 dark:hover:text-custom-50 hover:border-custom-500 dark:hover:border-custom-500 focus:bg-custom-500 dark:focus:bg-custom-500 focus:border-custom-500 dark:focus:border-custom-500 focus:text-custom-50 dark:focus:text-custom-50"><i
+                                            class="border w-9 h-9 leading-[15px] minus bg-white ltr:rounded-l rtl:rounded-r transition-all duration-200 ease-linear border-slate-200 text-slate-500 hover:bg-custom-500 hover:text-custom-50 hover:border-custom-500 focus:bg-custom-500 focus:border-custom-500 focus:text-custom-50"><i
                                                 data-lucide="minus" class="inline-block size-4"></i></button>
                                         <input type="number"
-                                            class="w-12 text-center h-9 border-y product-quantity dark:bg-zink-700 focus:shadow-none dark:border-zink-500"
+                                            class="w-12 text-center h-9 border-y product-quantity focus:shadow-none"
                                             value="1" min="0" max="100" readonly>
                                         <button type="button"
-                                            class="transition-all duration-200 ease-linear bg-white border dark:bg-zink-700 dark:border-zink-500 ltr:rounded-r rtl:rounded-l w-9 h-9 border-slate-200 plus text-slate-500 dark:text-zink-200 hover:bg-custom-500 dark:hover:bg-custom-500 hover:text-custom-50 dark:hover:text-custom-50 hover:border-custom-500 dark:hover:border-custom-500 focus:bg-custom-500 dark:focus:bg-custom-500 focus:border-custom-500 dark:focus:border-custom-500 focus:text-custom-50 dark:focus:text-custom-50"><i
+                                            class="transition-all duration-200 ease-linear bg-white border ltr:rounded-r rtl:rounded-l w-9 h-9 border-slate-200 plus text-slate-500 hover:bg-custom-500 hover:text-custom-50 hover:border-custom-500 focus:bg-custom-500 focus:border-custom-500 focus:text-custom-50"><i
                                                 data-lucide="plus" class="inline-block size-4"></i></button>
                                     </div>
                                     <h6 class="product-line-price">349.95</h6>
@@ -126,13 +126,13 @@
                         </div>
                         <div class="flex gap-2 product">
                             <div
-                                class="flex items-center justify-center w-12 h-12 rounded-md bg-slate-100 shrink-0 dark:bg-zink-500">
+                                class="flex items-center justify-center w-12 h-12 rounded-md bg-slate-100 shrink-0">
                                 <img src="assets/images/img-09.png" alt="" class="h-8">
                             </div>
                             <div class="overflow-hidden grow">
                                 <div class="ltr:float-right rtl:float-left">
                                     <button
-                                        class="transition-all duration-150 ease-linear text-slate-500 dark:text-zink-200 hover:text-red-500 dark:hover:text-red-500"><i
+                                        class="transition-all duration-150 ease-linear text-slate-500 hover:text-red-500"><i
                                             data-lucide="x" class="size-4"></i></button>
                                 </div>
                                 <a href="#!"
@@ -141,19 +141,19 @@
                                 </a>
                                 <div class="flex items-center mb-3">
                                     <h5 class="text-base product-price">$<span>546.74</span></h5>
-                                    <div class="font-normal rtl:mr-1 ltr:ml-1 text-slate-400 dark:text-zink-200">
+                                    <div class="font-normal rtl:mr-1 ltr:ml-1 text-slate-400">
                                         (Fashion)</div>
                                 </div>
                                 <div class="flex items-center justify-between gap-3">
                                     <div class="inline-flex text-center input-step">
                                         <button type="button"
-                                            class="border w-9 h-9 leading-[15px] minus bg-white dark:bg-zink-700 dark:border-zink-500 ltr:rounded-l rtl:rounded-r transition-all duration-200 ease-linear border-slate-200 text-slate-500 dark:text-zink-200 hover:bg-custom-500 dark:hover:bg-custom-500 hover:text-custom-50 dark:hover:text-custom-50 hover:border-custom-500 dark:hover:border-custom-500 focus:bg-custom-500 dark:focus:bg-custom-500 focus:border-custom-500 dark:focus:border-custom-500 focus:text-custom-50 dark:focus:text-custom-50"><i
+                                            class="border w-9 h-9 leading-[15px] minus bg-white ltr:rounded-l rtl:rounded-r transition-all duration-200 ease-linear border-slate-200 text-slate-500 hover:bg-custom-500 hover:text-custom-50 hover:border-custom-500 focus:bg-custom-500 focus:border-custom-500 focus:text-custom-50"><i
                                                 data-lucide="minus" class="inline-block size-4"></i></button>
                                         <input type="number"
-                                            class="w-12 text-center h-9 border-y product-quantity dark:bg-zink-700 focus:shadow-none dark:border-zink-500"
+                                            class="w-12 text-center h-9 border-y product-quantity focus:shadow-none"
                                             value="4" min="0" max="100" readonly>
                                         <button type="button"
-                                            class="transition-all duration-200 ease-linear bg-white border dark:bg-zink-700 dark:border-zink-500 ltr:rounded-r rtl:rounded-l w-9 h-9 border-slate-200 plus text-slate-500 dark:text-zink-200 hover:bg-custom-500 dark:hover:bg-custom-500 hover:text-custom-50 dark:hover:text-custom-50 hover:border-custom-500 dark:hover:border-custom-500 focus:bg-custom-500 dark:focus:bg-custom-500 focus:border-custom-500 dark:focus:border-custom-500 focus:text-custom-50 dark:focus:text-custom-50"><i
+                                            class="transition-all duration-200 ease-linear bg-white border ltr:rounded-r rtl:rounded-l w-9 h-9 border-slate-200 plus text-slate-500 hover:bg-custom-500 hover:text-custom-50 hover:border-custom-500 focus:bg-custom-500 focus:border-custom-500 focus:text-custom-50"><i
                                                 data-lucide="plus" class="inline-block size-4"></i></button>
                                     </div>
                                     <h6 class="product-line-price end">2,186.96</h6>
@@ -162,7 +162,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="p-4 border-t border-slate-200 dark:border-zink-500">
+                <div class="p-4 border-t border-slate-200">
 
                     <table class="w-full mb-3 ">
                         <tbody class="table-total">
@@ -190,10 +190,10 @@
                     </table>
                     <div class="flex items-center justify-between gap-3">
                         <a href="apps-ecommerce-product-grid.html"
-                            class="w-full text-white btn bg-slate-500 border-slate-500 hover:text-white hover:bg-slate-600 hover:border-slate-600 focus:text-white focus:bg-slate-600 focus:border-slate-600 focus:ring focus:ring-slate-100 active:text-white active:bg-slate-600 active:border-slate-600 active:ring active:ring-slate-100 dark:ring-slate-400/10">Continue
+                            class="w-full text-white btn bg-slate-500 border-slate-500 hover:text-white hover:bg-slate-600 hover:border-slate-600 focus:text-white focus:bg-slate-600 focus:border-slate-600 focus:ring focus:ring-slate-100 active:text-white active:bg-slate-600 active:border-slate-600 active:ring active:ring-slate-100">Continue
                             Shopping</a>
                         <a href="apps-ecommerce-checkout.html"
-                            class="w-full text-white bg-red-500 border-red-500 btn hover:text-white hover:bg-red-600 hover:border-red-600 focus:text-white focus:bg-red-600 focus:border-red-600 focus:ring focus:ring-red-100 active:text-white active:bg-red-600 active:border-red-600 active:ring active:ring-red-100 dark:ring-custom-400/20">Checkout</a>
+                            class="w-full text-white bg-red-500 border-red-500 btn hover:text-white hover:bg-red-600 hover:border-red-600 focus:text-white focus:bg-red-600 focus:border-red-600 focus:ring focus:ring-red-100 active:text-white active:bg-red-600 active:border-red-600 active:ring active:ring-red-100">Checkout</a>
                     </div>
                 </div>
             </div>
@@ -228,15 +228,15 @@
     </div>
 
     <div id="customizerButton" drawer-end
-        class="fixed inset-y-0 flex flex-col w-full transition-transform duration-300 ease-in-out transform bg-white shadow ltr:right-0 rtl:left-0 md:w-96 z-drawer show dark:bg-zink-600">
-        <div class="flex justify-between p-4 border-b border-slate-200 dark:border-zink-500">
+        class="fixed inset-y-0 flex flex-col w-full transition-transform duration-300 ease-in-out transform bg-white shadow ltr:right-0 rtl:left-0 md:w-96 z-drawer show">
+        <div class="flex justify-between p-4 border-b border-slate-200">
             <div class="grow">
                 <h5 class="mb-1 text-16">Tailwick Theme Customizer</h5>
-                <p class="font-normal text-slate-500 dark:text-zink-200">Choose your themes & layouts etc.</p>
+                <p class="font-normal text-slate-500">Choose your themes & layouts etc.</p>
             </div>
             <div class="shrink-0">
                 <button data-drawer-close="customizerButton"
-                    class="transition-all duration-150 ease-linear text-slate-500 hover:text-slate-800 dark:text-zink-200 dark:hover:text-zink-50"><i
+                    class="transition-all duration-150 ease-linear text-slate-500 hover:text-slate-800"><i
                         data-lucide="x" class="w-4 h-4"></i></button>
             </div>
         </div>
@@ -246,25 +246,25 @@
                 <div class="grid grid-cols-1 mb-5 gap-7 sm:grid-cols-2">
                     <div class="relative">
                         <input id="layout-one" name="dataLayout"
-                            class="absolute w-4 h-4 border rounded-full appearance-none cursor-pointer ltr:right-2 rtl:left-2 top-2 vertical-menu-btn bg-slate-100 border-slate-300 checked:bg-custom-500 checked:border-custom-500 dark:bg-zink-400 dark:border-zink-500"
+                            class="absolute w-4 h-4 border rounded-full appearance-none cursor-pointer ltr:right-2 rtl:left-2 top-2 vertical-menu-btn bg-slate-100 border-slate-300 checked:bg-custom-500 checked:border-custom-500"
                             type="radio" value="vertical" checked>
                         <label
-                            class="block w-full h-24 p-0 overflow-hidden border rounded-lg cursor-pointer border-slate-200 dark:border-zink-500"
+                            class="block w-full h-24 p-0 overflow-hidden border rounded-lg cursor-pointer border-slate-200"
                             for="layout-one">
                             <span class="flex h-full gap-0">
                                 <span class="shrink-0">
                                     <span
-                                        class="flex flex-col h-full gap-1 p-1 ltr:border-r rtl:border-l border-slate-200 dark:border-zink-500">
-                                        <span class="block p-1 px-2 mb-2 rounded bg-slate-100 dark:bg-zink-400"></span>
-                                        <span class="block p-1 px-2 pb-0 bg-slate-100 dark:bg-zink-500"></span>
-                                        <span class="block p-1 px-2 pb-0 bg-slate-100 dark:bg-zink-500"></span>
-                                        <span class="block p-1 px-2 pb-0 bg-slate-100 dark:bg-zink-500"></span>
+                                        class="flex flex-col h-full gap-1 p-1 ltr:border-r rtl:border-l border-slate-200">
+                                        <span class="block p-1 px-2 mb-2 rounded bg-slate-100"></span>
+                                        <span class="block p-1 px-2 pb-0 bg-slate-100"></span>
+                                        <span class="block p-1 px-2 pb-0 bg-slate-100"></span>
+                                        <span class="block p-1 px-2 pb-0 bg-slate-100"></span>
                                     </span>
                                 </span>
                                 <span class="grow">
                                     <span class="flex flex-col h-full">
-                                        <span class="block h-3 bg-slate-100 dark:bg-zink-500"></span>
-                                        <span class="block h-3 mt-auto bg-slate-100 dark:bg-zink-500"></span>
+                                        <span class="block h-3 bg-slate-100"></span>
+                                        <span class="block h-3 mt-auto bg-slate-100"></span>
                                     </span>
                                 </span>
                             </span>
@@ -274,19 +274,19 @@
 
                     <div class="relative">
                         <input id="layout-two" name="dataLayout"
-                            class="absolute w-4 h-4 border rounded-full appearance-none cursor-pointer ltr:right-2 rtl:left-2 top-2 vertical-menu-btn bg-slate-100 border-slate-300 checked:bg-custom-500 checked:border-custom-500 dark:bg-zink-400 dark:border-zink-500"
+                            class="absolute w-4 h-4 border rounded-full appearance-none cursor-pointer ltr:right-2 rtl:left-2 top-2 vertical-menu-btn bg-slate-100 border-slate-300 checked:bg-custom-500 checked:border-custom-500"
                             type="radio" value="horizontal">
                         <label
-                            class="block w-full h-24 p-0 overflow-hidden border rounded-lg cursor-pointer border-slate-200 dark:border-zink-500"
+                            class="block w-full h-24 p-0 overflow-hidden border rounded-lg cursor-pointer border-slate-200"
                             for="layout-two">
                             <span class="flex flex-col h-full gap-1">
-                                <span class="flex items-center gap-1 p-1 bg-slate-100 dark:bg-zink-500">
-                                    <span class="block p-1 ml-1 bg-white rounded dark:bg-zink-500"></span>
-                                    <span class="block p-1 px-2 pb-0 bg-white dark:bg-zink-500 ms-auto"></span>
-                                    <span class="block p-1 px-2 pb-0 bg-white dark:bg-zink-500"></span>
+                                <span class="flex items-center gap-1 p-1 bg-slate-100">
+                                    <span class="block p-1 ml-1 bg-white rounded"></span>
+                                    <span class="block p-1 px-2 pb-0 bg-white ms-auto"></span>
+                                    <span class="block p-1 px-2 pb-0 bg-white"></span>
                                 </span>
-                                <span class="block p-1 bg-slate-100 dark:bg-zink-500"></span>
-                                <span class="block p-1 mt-auto bg-slate-100 dark:bg-zink-500"></span>
+                                <span class="block p-1 bg-slate-100"></span>
+                                <span class="block p-1 mt-auto bg-slate-100"></span>
                             </span>
                         </label>
                         <h5 class="mt-2 text-center text-15">Horizontal</h5>
@@ -298,9 +298,9 @@
                         <div class="relative inline-block w-10 mr-2 align-middle transition duration-200 ease-in">
                             <input type="checkbox" name="customDefaultSwitch" value="dark"
                                 id="customDefaultSwitch"
-                                class="absolute block w-5 h-5 transition duration-300 ease-linear border-2 rounded-full appearance-none cursor-pointer border-slate-200 bg-white/80 peer/published checked:bg-white checked:right-0 checked:border-custom-500 arrow-none dark:border-zink-500 dark:bg-zink-500 dark:checked:bg-zink-400 checked:bg-none">
+                                class="absolute block w-5 h-5 transition duration-300 ease-linear border-2 rounded-full appearance-none cursor-pointer border-slate-200 bg-white/80 peer/published checked:bg-white checked:right-0 checked:border-custom-500 arrow-none checked:bg-none">
                             <label for="customDefaultSwitch"
-                                class="block h-5 overflow-hidden transition duration-300 ease-linear border rounded-full cursor-pointer border-slate-200 bg-slate-200 peer-checked/published:bg-custom-500 peer-checked/published:border-custom-500 dark:border-zink-500 dark:bg-zink-600"></label>
+                                class="block h-5 overflow-hidden transition duration-300 ease-linear border rounded-full cursor-pointer border-slate-200 bg-slate-200 peer-checked/published:bg-custom-500 peer-checked/published:border-custom-500"></label>
                         </div>
                         <label for="customDefaultSwitch" class="inline-block text-base font-medium">Semi Dark (Sidebar
                             & Header)</label>
@@ -314,25 +314,25 @@
                 <div class="grid grid-cols-1 mb-5 gap-7 sm:grid-cols-2">
                     <div class="relative">
                         <input id="layoutSkitOne" name="dataLayoutSkin"
-                            class="absolute w-4 h-4 border rounded-full appearance-none cursor-pointer ltr:right-2 rtl:left-2 top-2 vertical-menu-btn bg-slate-100 border-slate-300 checked:bg-custom-500 checked:border-custom-500 dark:bg-zink-400 dark:border-zink-500"
+                            class="absolute w-4 h-4 border rounded-full appearance-none cursor-pointer ltr:right-2 rtl:left-2 top-2 vertical-menu-btn bg-slate-100 border-slate-300 checked:bg-custom-500 checked:border-custom-500"
                             type="radio" value="default">
                         <label
-                            class="block w-full h-24 p-0 overflow-hidden border rounded-lg cursor-pointer border-slate-200 dark:border-zink-500 bg-slate-50 dark:bg-zink-600"
+                            class="block w-full h-24 p-0 overflow-hidden border rounded-lg cursor-pointer border-slate-200 bg-slate-50"
                             for="layoutSkitOne">
                             <span class="flex h-full gap-0">
                                 <span class="shrink-0">
                                     <span
-                                        class="flex flex-col h-full gap-1 p-1 ltr:border-r rtl:border-l border-slate-200 dark:border-zink-500">
-                                        <span class="block p-1 px-2 mb-2 rounded bg-slate-100 dark:bg-zink-400"></span>
-                                        <span class="block p-1 px-2 pb-0 bg-slate-100 dark:bg-zink-500"></span>
-                                        <span class="block p-1 px-2 pb-0 bg-slate-100 dark:bg-zink-500"></span>
-                                        <span class="block p-1 px-2 pb-0 bg-slate-100 dark:bg-zink-500"></span>
+                                        class="flex flex-col h-full gap-1 p-1 ltr:border-r rtl:border-l border-slate-200">
+                                        <span class="block p-1 px-2 mb-2 rounded bg-slate-100"></span>
+                                        <span class="block p-1 px-2 pb-0 bg-slate-100"></span>
+                                        <span class="block p-1 px-2 pb-0 bg-slate-100"></span>
+                                        <span class="block p-1 px-2 pb-0 bg-slate-100"></span>
                                     </span>
                                 </span>
                                 <span class="grow">
                                     <span class="flex flex-col h-full">
-                                        <span class="block h-3 bg-slate-100 dark:bg-zink-500"></span>
-                                        <span class="block h-3 mt-auto bg-slate-100 dark:bg-zink-500"></span>
+                                        <span class="block h-3 bg-slate-100"></span>
+                                        <span class="block h-3 mt-auto bg-slate-100"></span>
                                     </span>
                                 </span>
                             </span>
@@ -342,26 +342,26 @@
 
                     <div class="relative">
                         <input id="layoutSkitTwo" name="dataLayoutSkin"
-                            class="absolute w-4 h-4 border rounded-full appearance-none cursor-pointer ltr:right-2 rtl:left-2 top-2 vertical-menu-btn bg-slate-100 border-slate-300 checked:bg-custom-500 checked:border-custom-500 dark:bg-zink-400 dark:border-zink-500"
+                            class="absolute w-4 h-4 border rounded-full appearance-none cursor-pointer ltr:right-2 rtl:left-2 top-2 vertical-menu-btn bg-slate-100 border-slate-300 checked:bg-custom-500 checked:border-custom-500"
                             type="radio" value="bordered" checked>
                         <label
-                            class="block w-full h-24 p-0 overflow-hidden border rounded-lg cursor-pointer border-slate-200 dark:border-zink-500"
+                            class="block w-full h-24 p-0 overflow-hidden border rounded-lg cursor-pointer border-slate-200"
                             for="layoutSkitTwo">
                             <span class="flex h-full gap-0">
                                 <span class="shrink-0">
                                     <span
-                                        class="flex flex-col h-full gap-1 p-1 ltr:border-r rtl:border-l border-slate-200 dark:border-zink-500">
-                                        <span class="block p-1 px-2 mb-2 rounded bg-slate-100 dark:bg-zink-400"></span>
-                                        <span class="block p-1 px-2 pb-0 bg-slate-100 dark:bg-zink-500"></span>
-                                        <span class="block p-1 px-2 pb-0 bg-slate-100 dark:bg-zink-500"></span>
-                                        <span class="block p-1 px-2 pb-0 bg-slate-100 dark:bg-zink-500"></span>
+                                        class="flex flex-col h-full gap-1 p-1 ltr:border-r rtl:border-l border-slate-200">
+                                        <span class="block p-1 px-2 mb-2 rounded bg-slate-100"></span>
+                                        <span class="block p-1 px-2 pb-0 bg-slate-100"></span>
+                                        <span class="block p-1 px-2 pb-0 bg-slate-100"></span>
+                                        <span class="block p-1 px-2 pb-0 bg-slate-100"></span>
                                     </span>
                                 </span>
                                 <span class="grow">
                                     <span class="flex flex-col h-full">
-                                        <span class="block h-3 border-b border-slate-200 dark:border-zink-500"></span>
+                                        <span class="block h-3 border-b border-slate-200"></span>
                                         <span
-                                            class="block h-3 mt-auto border-t border-slate-200 dark:border-zink-500"></span>
+                                            class="block h-3 mt-auto border-t border-slate-200"></span>
                                     </span>
                                 </span>
                             </span>
@@ -376,10 +376,10 @@
                 <h5 class="mb-3 underline capitalize text-15">Light & Dark</h5>
                 <div class="flex gap-3">
                     <button type="button" id="dataModeOne" name="dataMode" value="light"
-                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200 dark:bg-zink-600 dark:text-zink-200 dark:border-zink-400 dark:hover:bg-zink-600 dark:hover:text-zink-100 dark:hover:border-zink-400 dark:[&.active]:bg-custom-500/10 dark:[&.active]:border-custom-500/30 dark:[&.active]:text-custom-500 active">Light
+                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200 active">Light
                         Mode</button>
                     <button type="button" id="dataModeTwo" name="dataMode" value="dark"
-                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200 dark:bg-zink-600 dark:text-zink-200 dark:border-zink-400 dark:hover:bg-zink-600 dark:hover:text-zink-100 dark:hover:border-zink-400 dark:[&.active]:bg-custom-500/10 dark:[&.active]:border-custom-500/30 dark:[&.active]:text-custom-500">Dark
+                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200">Dark
                         Mode</button>
                 </div>
             </div>
@@ -389,10 +389,10 @@
                 <h5 class="mb-3 underline capitalize text-15">LTR & RTL</h5>
                 <div class="flex flex-wrap gap-3">
                     <button type="button" id="diractionOne" name="dir" value="ltr"
-                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200 dark:bg-zink-600 dark:text-zink-200 dark:border-zink-400 dark:hover:bg-zink-600 dark:hover:text-zink-100 dark:hover:border-zink-400 dark:[&.active]:bg-custom-500/10 dark:[&.active]:border-custom-500/30 dark:[&.active]:text-custom-500 active">LTR
+                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200 active">LTR
                         Mode</button>
                     <button type="button" id="diractionTwo" name="dir" value="rtl"
-                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200 dark:bg-zink-600 dark:text-zink-200 dark:border-zink-400 dark:hover:bg-zink-600 dark:hover:text-zink-100 dark:hover:border-zink-400 dark:[&.active]:bg-custom-500/10 dark:[&.active]:border-custom-500/30 dark:[&.active]:text-custom-500">RTL
+                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200">RTL
                         Mode</button>
                 </div>
             </div>
@@ -402,9 +402,9 @@
                 <h5 class="mb-3 underline capitalize text-15">Content Width</h5>
                 <div class="flex gap-3">
                     <button type="button" id="datawidthOne" name="datawidth" value="fluid"
-                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200 dark:bg-zink-600 dark:text-zink-200 dark:border-zink-400 dark:hover:bg-zink-600 dark:hover:text-zink-100 dark:hover:border-zink-400 dark:[&.active]:bg-custom-500/10 dark:[&.active]:border-custom-500/30 dark:[&.active]:text-custom-500 active">Fluid</button>
+                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200 active">Fluid</button>
                     <button type="button" id="datawidthTwo" name="datawidth" value="boxed"
-                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200 dark:bg-zink-600 dark:text-zink-200 dark:border-zink-400 dark:hover:bg-zink-600 dark:hover:text-zink-100 dark:hover:border-zink-400 dark:[&.active]:bg-custom-500/10 dark:[&.active]:border-custom-500/30 dark:[&.active]:text-custom-500">Boxed</button>
+                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200">Boxed</button>
                 </div>
             </div>
 
@@ -413,11 +413,11 @@
                 <h5 class="mb-3 underline capitalize text-15">Sidebar Size</h5>
                 <div class="flex flex-wrap gap-3">
                     <button type="button" id="sidebarSizeOne" name="sidebarSize" value="lg"
-                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200 dark:bg-zink-600 dark:text-zink-200 dark:border-zink-400 dark:hover:bg-zink-600 dark:hover:text-zink-100 dark:hover:border-zink-400 dark:[&.active]:bg-custom-500/10 dark:[&.active]:border-custom-500/30 dark:[&.active]:text-custom-500 active">Default</button>
+                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200 active">Default</button>
                     <button type="button" id="sidebarSizeTwo" name="sidebarSize" value="md"
-                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200 dark:bg-zink-600 dark:text-zink-200 dark:border-zink-400 dark:hover:bg-zink-600 dark:hover:text-zink-100 dark:hover:border-zink-400 dark:[&.active]:bg-custom-500/10 dark:[&.active]:border-custom-500/30 dark:[&.active]:text-custom-500">Compact</button>
+                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200">Compact</button>
                     <button type="button" id="sidebarSizeThree" name="sidebarSize" value="sm"
-                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200 dark:bg-zink-600 dark:text-zink-200 dark:border-zink-400 dark:hover:bg-zink-600 dark:hover:text-zink-100 dark:hover:border-zink-400 dark:[&.active]:bg-custom-500/10 dark:[&.active]:border-custom-500/30 dark:[&.active]:text-custom-500">Small
+                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200">Small
                         (Icon)</button>
                 </div>
             </div>
@@ -427,13 +427,13 @@
                 <h5 class="mb-3 underline capitalize text-15">Navigation Type</h5>
                 <div class="flex flex-wrap gap-3">
                     <button type="button" id="navbarTwo" name="navbar" value="sticky"
-                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200 dark:bg-zink-600 dark:text-zink-200 dark:border-zink-400 dark:hover:bg-zink-600 dark:hover:text-zink-100 dark:hover:border-zink-400 dark:[&.active]:bg-custom-500/10 dark:[&.active]:border-custom-500/30 dark:[&.active]:text-custom-500 active">Sticky</button>
+                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200 active">Sticky</button>
                     <button type="button" id="navbarOne" name="navbar" value="scroll"
-                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200 dark:bg-zink-600 dark:text-zink-200 dark:border-zink-400 dark:hover:bg-zink-600 dark:hover:text-zink-100 dark:hover:border-zink-400 dark:[&.active]:bg-custom-500/10 dark:[&.active]:border-custom-500/30 dark:[&.active]:text-custom-500">Scroll</button>
+                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200">Scroll</button>
                     <button type="button" id="navbarThree" name="navbar" value="bordered"
-                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200 dark:bg-zink-600 dark:text-zink-200 dark:border-zink-400 dark:hover:bg-zink-600 dark:hover:text-zink-100 dark:hover:border-zink-400 dark:[&.active]:bg-custom-500/10 dark:[&.active]:border-custom-500/30 dark:[&.active]:text-custom-500">Bordered</button>
+                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200">Bordered</button>
                     <button type="button" id="navbarFour" name="navbar" value="hidden"
-                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200 dark:bg-zink-600 dark:text-zink-200 dark:border-zink-400 dark:hover:bg-zink-600 dark:hover:text-zink-100 dark:hover:border-zink-400 dark:[&.active]:bg-custom-500/10 dark:[&.active]:border-custom-500/30 dark:[&.active]:text-custom-500">Hidden</button>
+                        class="transition-all duration-200 ease-linear bg-white border-dashed text-slate-500 btn border-slate-200 hover:text-slate-500 hover:bg-slate-50 hover:border-slate-200 [&.active]:text-custom-500 [&.active]:bg-custom-50 [&.active]:border-custom-200">Hidden</button>
                 </div>
             </div>
 
@@ -480,7 +480,7 @@
             </div>
 
         </div>
-        <div class="flex items-center justify-between gap-3 p-4 border-t border-slate-200 dark:border-zink-500">
+        <div class="flex items-center justify-between gap-3 p-4 border-t border-slate-200">
             <button type="button" id="reset-layout"
                 class="w-full transition-all duration-200 ease-linear text-slate-500 btn bg-slate-200 border-slate-200 hover:text-slate-600 hover:bg-slate-300 hover:border-slate-300 focus:text-slate-600 focus:bg-slate-300 focus:border-slate-300 focus:ring focus:ring-slate-100">Reset</button>
             <a href="#!"

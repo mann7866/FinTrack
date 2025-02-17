@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('nominal');
             $table->foreignId('category_id')->constrained('categories')->restrictOnDelete()->cascadeOnUpdate();
+            $table->foreignId('user_id')->constrained('users')->restrictOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

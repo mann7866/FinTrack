@@ -6,10 +6,10 @@
         </div>
         <ul class="flex items-center gap-2 text-sm font-normal shrink-0">
             <li
-                class="relative before:content-['\ea54'] before:font-remix ltr:before:-right-1 rtl:before:-left-1  before:absolute before:text-[18px] before:-top-[3px] ltr:pr-4 rtl:pl-4 before:text-slate-400 dark:text-zink-200">
-                <a href="#!" class="text-slate-400 dark:text-zink-200">Transaksi</a>
+                class="relative before:content-['\ea54'] before:font-remix ltr:before:-right-1 rtl:before:-left-1  before:absolute before:text-[18px] before:-top-[3px] ltr:pr-4 rtl:pl-4 before:text-slate-400">
+                <a href="#!" class="text-slate-400">Transaksi</a>
             </li>
-            <li class="text-slate-700 dark:text-zink-100">
+            <li class="text-slate-700">
                 Transaksi
             </li>
         </ul>
@@ -21,7 +21,7 @@
                     <h5>Buat transaksi</h5>
                 </div>
                 @if ($errors->any())
-                    <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 border border-red-400 rounded-lg dark:bg-red-900 dark:text-red-200"
+                    <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 border border-red-400 rounded-lg"
                         role="alert">
                         <strong>Terjadi kesalahan!</strong> Silakan periksa kembali inputan Anda.
                         <ul class="mt-2 list-disc list-inside">
@@ -41,7 +41,7 @@
                                 <span class="text-gray-500">Masukkan total transaksi</span>
                             </label>
                             <input type="number" name="nominal" id="nominal"
-                                class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500
+                                class="form-input border-slate-200 focus:outline-none focus:border-custom-500
                                 @error('nominal') border-red-500 @enderror"
                                 placeholder="Masukkan jumlah" value="{{ old('nominal') }}">
                             @error('nominal')
@@ -57,7 +57,7 @@
                                 <span class="text-gray-500">Masukkan tanggal transaksi</span>
                             </label>
                             <input type="date" name="transaction_date" id="transaction_date"
-                                class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500
+                                class="form-input border-slate-200 focus:outline-none focus:border-custom-500
                                 @error('transaction_date') border-red-500 @enderror"
                                 value="{{ old('transaction_date') }}">
                             @error('transaction_date')
@@ -71,7 +71,7 @@
                                 <span class="text-gray-500">Pilih tipe transaksi</span>
                             </label>
                             <select name="type" id="type"
-                                class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500
+                                class="form-input border-slate-200 focus:outline-none focus:border-custom-500
                                 @error('type') border-red-500 @enderror">
                                 <option value="">Pilih tipe</option>
                                 <option value="income" {{ old('type') == 'income' ? 'selected' : '' }}>Pemasukan</option>
@@ -89,7 +89,7 @@
                                 <span class="text-gray-500">Pilih metode transaksi</span>
                             </label>
                             <select name="payment_method" id="payment_method"
-                                class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500
+                                class="form-input border-slate-200 focus:outline-none focus:border-custom-500
                                 @error('payment_method') border-red-500 @enderror">
                                 <option value="">Pilih metode</option>
                                 <option value="cash" {{ old('payment_method') == 'cash' ? 'selected' : '' }}>Tunai
@@ -108,7 +108,7 @@
                                 <span class="text-gray-500">Pilih kategori transaksi</span>
                             </label>
                             <select name="category_id" id="category_id"
-                                class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500
+                                class="form-input border-slate-200 focus:outline-none focus:border-custom-500
                                 @error('category_id') border-red-500 @enderror">
                                 <option value="">Pilih kategori</option>
                                 @forelse ($categories as $category)
@@ -132,7 +132,7 @@
                                 <span class="text-gray-500">Masukkan deskripsi transaksi</span>
                             </label>
                             <textarea name="description" id="description" rows="3"
-                                class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500
+                                class="form-input border-slate-200 focus:outline-none focus:border-custom-500
                                 @error('description') border-red-500 @enderror">{{ old('description') }}</textarea>
                             @error('description')
                                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>

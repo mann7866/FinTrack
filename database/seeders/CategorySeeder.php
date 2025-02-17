@@ -14,15 +14,19 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         Category::create([
+            'user_id' => '1',
             'name'=>'uang saku',
         ],);
         Category::create([
+            'user_id' => '1',
             'name'=>'uang bensin',
         ],);
         Category::create([
+            'user_id' => '1',
             'name'=>'uang makan',
         ],);
         Category::create([
+            'user_id' => '1',
             'name'=>'uang maling',
         ],);
     }

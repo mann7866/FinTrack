@@ -12,9 +12,16 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('pages.category.index');
+        $categories = Category::query()
+        ->when($request->filled('search'),function($categories) use ($request){
+            return $categories->where('name','like', '%' . $request->seacrh . '%');
+        })
+        ->where('user_id', Auth::user()->id)
+        ->latest()
+        ->get();
+        return view('pages.category.index',compact('categories'));
     }
 
     /**
